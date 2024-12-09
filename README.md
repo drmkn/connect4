@@ -55,6 +55,14 @@ The Minimax Agent uses a game-tree search algorithm with the following features:
 - **Terminal State Evaluation**: Determines outcomes such as wins, losses, or draws at leaf nodes.
 - **Strategic Play**: Calculates optimal moves for both the agent and opponent to maximize the agent's chances of winning.
 
+
+
+<div align="center">
+    <img src="assets/play_against_heurestic_agent.gif" alt="Connect 4 Gameplay" width="600">
+    <p><em>Figure: Gameplay against Heurestic Agent</em></p>
+</div>
+
+
 ## Using Play, Test, and Train Functions
 ### Play
 The `play` function allows you to interact with the Connect 4 environment. You can either play as a human against an agent or have two agents compete.
