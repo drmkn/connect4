@@ -88,6 +88,7 @@ class Connect4(gym.Env):
         return self.grid.copy(), {"symbols": (self.agent_symb, self.opp_symb)}
 
     def render(self, mode="human"):
+        time.sleep(1)
         if mode == "stdout":
             print(self.grid)
             print("-" * 20)
