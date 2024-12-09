@@ -3,6 +3,7 @@ import pygame
 from stable_baselines3 import DQN, A2C, PPO
 from heuristic import HeuristicAgent
 from minimax import MinimaxAgent
+import time
 
 WIN_REWARD = 10
 BLOCK_REWARD = 3
@@ -42,6 +43,16 @@ def play(opponent, player=None):
             action = player.predict(env.grid)[0]
         _, reward, done, _, _ = env.step(action)
 
+        if done:
+            env.render(mode=mode)
+            if reward == WIN_REWARD:
+                pygame.display.set_caption("Player wins!")
+            elif reward == DRAW_REWARD:
+                pygame.display.set_caption("Draw!")
+            else:
+                pygame.display.set_caption("Opponent wins!")    
+            time.sleep(2)
+
     env.render(mode="stdout")
 
     print("Player's symbol:", symb1, "\nAI's symbol:", symb2)
@@ -55,8 +66,14 @@ def play(opponent, player=None):
 
 
 # player = MinimaxAgent(1, 2)
-agent = PPO.load("./saved_agents/PPO_vs_Heuristic")
+# agent = PPO.load("./saved_agents/PPO_vs_Heuristic")
 
 # agent = DQN.load("adv_agent1")
 
-play(agent)
+# play(agent)
+
+##play against Random agent
+# play(opponent=None)
+
+#play against Heurestic agent
+play(opponent=HeuristicAgent())
